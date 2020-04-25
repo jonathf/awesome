@@ -3,12 +3,14 @@ awful.rules = require("awful.rules")
 require("awful.autofocus")
 
 modkey = "Mod4"
+config_path = awful.util.getdir("config")
 
 globalkeys = awful.util.table.join(
 
     -- command keys
     awful.key({modkey}, "Return", function() awful.spawn(terminal) end),
     awful.key({modkey}, "v", function() awful.spawn("firefox") end),
+    awful.key({modkey}, "r", function() awful.spawn("rofi -show combi") end),
     awful.key({modkey, "Control"}, "r", awesome.restart),
     awful.key({modkey, "Control"}, "q", awesome.quit),
 
@@ -84,9 +86,9 @@ globalkeys = awful.util.table.join(
    awful.key({}, "XF86AudioMute", function()
            awful.util.spawn("amixer -D pulse sset Master toggle") end),
    awful.key({}, "XF86MonBrightnessDown", function()
-        awful.util.spawn("xbacklight -dec 20") end),
+           awful.spawn.with_shell(config_path .. 'xbacklight_sqrt -dec 2') end),
    awful.key({}, "XF86MonBrightnessUp", function()
-        awful.util.spawn("xbacklight -inc 20") end),
+           awful.spawn.with_shell(config_path .. 'xbacklight_sqrt -inc 3') end),
    awful.key({}, "Print", function()
            awful.util.spawn("scrot -e 'mv $f ~/tmp/screenshots/ 2>/dev/null'") end),
 
