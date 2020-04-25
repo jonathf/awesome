@@ -13,8 +13,9 @@ To install, follow the steps:
 
    .. code:: bash
 
-       sudo pacman --sync --refresh --noconfirm awesome lain xcompmgr pa-applet \
-           network-manager-applet scrot blueman xfce4-power-manager xorg-xbacklight
+       sudo pacman --sync --refresh --noconfirm awesome lain xcompmgr \
+           pa-applet network-manager-applet scrot blueman \
+           xfce4-power-manager xorg-xbacklight rofi-scripts
 
 2. Clone repository into Awesome configuration folder:
 
